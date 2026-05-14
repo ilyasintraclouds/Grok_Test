@@ -3,8 +3,10 @@ function initTheme() {
   const toggleBtn = document.getElementById('theme-toggle');
   const themeIcon = document.getElementById('theme-icon');
   
-  // Default to Light mode
-  if (localStorage.theme === 'dark' || (!('theme' in localStorage))) {
+  if (!toggleBtn || !themeIcon) return;
+
+  // Default to Light mode (as per your requirement)
+  if (localStorage.theme === 'dark') {
     document.documentElement.classList.add('dark');
     themeIcon.classList.replace('fa-moon', 'fa-sun');
   } else {
@@ -25,11 +27,11 @@ function initTheme() {
   });
 }
 
-// Initialize everything
+// Initialize everything when page loads
 window.addEventListener('load', () => {
   initTheme();
 
-  // Form submission
+  // Form submission handler
   const form = document.querySelector('form');
   if (form) {
     form.addEventListener('submit', (e) => {
