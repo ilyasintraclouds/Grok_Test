@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style> body { font-family: 'Inter', system-ui, sans-serif; } </style>
 </head>
-<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-white">
+<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-white transition-colors duration-300">
 
-  <!-- Navbar (Copy this same navbar in all pages) -->
+  <!-- Navbar -->
   <nav class="fixed top-0 w-full bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 z-50">
     <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
       <div class="flex items-center gap-3">
@@ -25,7 +25,7 @@
         <a href="contact.html" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
       </div>
 
-      <button id="theme-toggle" class="p-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800">
+      <button id="theme-toggle" class="p-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition">
         <i id="theme-icon" class="fas fa-moon text-xl"></i>
       </button>
     </div>
@@ -34,23 +34,22 @@
   <div class="pt-28 max-w-5xl mx-auto px-6 py-16">
     <h1 class="text-4xl font-bold text-center mb-12">About Us</h1>
     
-    <div class="prose dark:prose-invert max-w-none text-lg leading-relaxed">
+    <div class="prose dark:prose-invert max-w-none text-lg leading-relaxed space-y-6">
       <p>At IntraClouds, we empower businesses with next-gen cloud and DevOps solutions, specializing in AWS, Azure, and Google Cloud.</p>
       <p>Our core expertise lies in building scalable, secure, and automated infrastructures that drive innovation, reduce costs, and ensure operational excellence. From cloud migration to DevOps automation, our 24/7 expert support keeps your production environments optimized and resilient.</p>
-      <p>Alongside our cloud expertise, our full array of digital solutions — which include web development, mobile app development, and AI services — complement our cloud expertise and help businesses utilize smart, innovative, and futuristic technologies to unlock growth.</p>
+      <p>Alongside our cloud expertise, our full array of digital solutions — web development, mobile app development, and AI services — help businesses utilize smart, innovative, and futuristic technologies to unlock growth.</p>
     </div>
   </div>
 
   <script>
-    // Theme Toggle Script - Same in all pages
     const toggle = document.getElementById('theme-toggle');
     const icon = document.getElementById('theme-icon');
-    
+
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark');
       icon.classList.replace('fa-moon', 'fa-sun');
     }
-    
+
     toggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
       if (document.documentElement.classList.contains('dark')) {
