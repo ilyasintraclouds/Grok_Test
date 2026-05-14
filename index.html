@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; }
+    .hero-bg { background: linear-gradient(rgba(27,47,91,0.85), rgba(27,47,91,0.85)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa') center/cover; }
   </style>
 </head>
 <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-white transition-colors duration-300">
@@ -27,23 +28,31 @@
         <a href="contact.html" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
       </div>
 
-      <button id="theme-toggle" class="p-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800">
+      <button id="theme-toggle" class="p-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition">
         <i id="theme-icon" class="fas fa-moon text-xl"></i>
       </button>
     </div>
   </nav>
 
-  <div class="pt-24 pb-20 text-center">
-    <h1 class="text-5xl md:text-6xl font-bold leading-tight">We Transform Ideas Into Technology</h1>
-    <p class="mt-6 text-xl text-zinc-600 dark:text-zinc-400">Innovative Cloud, AI, Web & Mobile Solutions</p>
-  </div>
+  <!-- Hero -->
+  <section class="hero-bg h-screen flex items-center text-white">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">We Transform Ideas Into Technology</h1>
+      <p class="text-xl md:text-2xl mb-10">Innovative Cloud, AI, Web & Mobile Solutions</p>
+      <a href="services.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-10 py-4 rounded-2xl text-lg font-semibold transition">Explore Our Services</a>
+    </div>
+  </section>
 
   <script>
     const toggle = document.getElementById('theme-toggle');
     const icon = document.getElementById('theme-icon');
-    
-    if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
-    
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+      icon.classList.replace('fa-moon', 'fa-sun');
+    }
+
     toggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
       if (document.documentElement.classList.contains('dark')) {
